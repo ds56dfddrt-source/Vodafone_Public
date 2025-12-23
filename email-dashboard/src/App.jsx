@@ -291,6 +291,7 @@ function App() {
               <input type="hidden" name="from_email" value={formData.email} />
               <input type="hidden" name="subject" value={formData.subject} />
               <input type="hidden" name="message" value={formData.message || '(No message)'} />
+              <input type="hidden" name="cc_email" value={formData.cc} />
               
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                 {/* Recipient Info */}
