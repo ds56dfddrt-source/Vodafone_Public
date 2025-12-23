@@ -247,53 +247,27 @@ function App() {
         <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
           {/* Partner Logos */}
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 4, mb: 4, flexWrap: 'wrap' }}>
-            {/* Amdocs Logo - Text Style */}
+            {/* Amdocs Logo */}
             <Box
-              sx={{
-                px: 2,
-                py: 1,
-                borderRadius: 2,
-                bgcolor: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-              }}
-            >
-              <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#00a3e0', letterSpacing: 1 }}>
-                amdocs
-              </Typography>
-            </Box>
-            {/* Vodafone Logo - Circle with Text */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '50%',
-                  bgcolor: '#e60000',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Typography sx={{ color: 'white', fontWeight: 700, fontSize: '1.2rem' }}>V</Typography>
-              </Box>
-              <Typography sx={{ fontWeight: 600, fontSize: '1.2rem', color: 'white' }}>
-                vodafone
-              </Typography>
-            </Box>
-            {/* Three Logo - Styled Text */}
+              component="img"
+              src="https://media.licdn.com/dms/image/v2/D4D0BAQGVGCbXY5yyZA/company-logo_200_200/B4DZr9HocnIEAI-/0/1765183228056/amdocs_logo?e=2147483647&v=beta&t=SlAb_vRPOSdm9SJ419DF4JgD1jZcVi6hk4FsG33JQDg"
+              alt="Amdocs"
+              sx={{ height: 60, borderRadius: 2 }}
+            />
+            {/* Vodafone Logo */}
             <Box
-              sx={{
-                px: 2,
-                py: 1,
-                borderRadius: 2,
-                bgcolor: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-              }}
-            >
-              <Typography sx={{ fontWeight: 700, fontSize: '1.5rem', color: '#ff7b00' }}>
-                3
-              </Typography>
-            </Box>
+              component="img"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQynV-_2IevVBtYX4m7JJrkIBYoz1LQaPfzDQ&s"
+              alt="Vodafone"
+              sx={{ height: 60, borderRadius: 2 }}
+            />
+            {/* Three Logo */}
+            <Box
+              component="img"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0OvoEFrJXE1JewEy7WwZF6MINFZ1GehXDcQ&s"
+              alt="Three"
+              sx={{ height: 60, borderRadius: 2 }}
+            />
           </Box>
 
           {/* Header */}
