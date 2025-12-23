@@ -123,36 +123,36 @@ function App() {
     setLoading(true);
 
     try {
-      // Use FormSubmit API (works through corporate networks)
-      const response = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: formData.subject,
-          message: formData.message || '(No message)',
-          _cc: formData.cc || undefined,
-        }),
-      });
+      // EmailJS template parameters
+      const templateParams = {
+        to_email: RECIPIENT_EMAIL,
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message || '(No message)',
+        cc_email: formData.cc || '',
+      };
 
-      const result = await response.json();
+      // Use EmailJS library
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
-      if (result.success) {
+      if (response.status === 200) {
         setSnackbar({
           open: true,
-          message: 'Email sent successfully!',
+          message: 'Email sent successfully via EmailJS!',
           severity: 'success',
         });
         setFormData({ name: 'Test Sender', email: 'test@external-company.com', cc: '', subject: 'Test Email from Dashboard', message: '' });
       } else {
-        throw new Error(result.message || 'Failed to send email');
+        throw new Error('Failed to send email');
       }
     } catch (error) {
-      console.error('FormSubmit Error:', error);
+      console.error('EmailJS Error:', error);
       setSnackbar({
         open: true,
         message: `Error: ${error.message || 'Failed to send email. Check console for details.'}`,
@@ -269,7 +269,7 @@ function App() {
               Send test emails from external sources to Amdocs
             </Typography>
             <Chip
-              label="FormSubmit • Free • No Backend"
+              label="EmailJS • Free • No Backend"
               size="small"
               sx={{ mt: 1, bgcolor: 'rgba(230, 0, 0, 0.15)', color: 'primary.light' }}
             />
@@ -452,7 +452,7 @@ function App() {
                   📧 First Time Setup
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Emails are sent via FormSubmit. First email requires confirmation click.
+                  Emails are sent via EmailJS from your connected Gmail account.
                   No activation needed - emails are sent directly from your Gmail.
                 </Typography>
               </CardContent>
