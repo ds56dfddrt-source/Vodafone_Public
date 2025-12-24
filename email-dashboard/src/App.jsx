@@ -113,7 +113,7 @@ function App() {
   const [formData, setFormData] = useState({
     name: 'Vodafone_Dashboard',
     email: 'ds56dfddrt@gmail.com',
-    cc: 'rafi.diamant@amdocs.com,amdtestb2cuk@gmail.com,autotrigger@incetuk002.corp.amdocs.com,shivam.sinha@amdocs.com,ds56dfddrt@gmail.com',
+    cc: '',
     env: 'UAT4',
     subjectType: 'NEW_B2B_POSTPAID_SIMO',
     message: '',
@@ -296,16 +296,8 @@ function App() {
               <EmailIcon sx={{ fontSize: 32, color: 'white' }} />
             </Box>
             <Typography variant="h4" component="h1" gutterBottom>
-              Email Test Dashboard
+              VodafoneThree Dashboard
             </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Send test emails from external sources to Amdocs
-            </Typography>
-            <Chip
-              label="EmailJS • Free • No Backend"
-              size="small"
-              sx={{ mt: 1, bgcolor: 'rgba(230, 0, 0, 0.15)', color: 'primary.light' }}
-            />
           </Box>
 
           {/* Main Form Card */}
@@ -341,47 +333,17 @@ function App() {
                   </Typography>
                 </Box>
 
-                {/* Name & Email Row */}
-                <Box sx={{ display: 'flex', gap: 2, flexWrap: { xs: 'wrap', sm: 'nowrap' } }}>
-                  <TextField
-                    fullWidth
-                    label="Your Name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="John Doe"
-                    InputProps={{
-                      startAdornment: <PersonIcon sx={{ mr: 1, color: 'text.secondary' }} />,
-                    }}
-                  />
-                  <TextField
-                    fullWidth
-                    label="Your Email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="john@external-company.com"
-                    InputProps={{
-                      startAdornment: <EmailIcon sx={{ mr: 1, color: 'text.secondary' }} />,
-                    }}
-                  />
-                </Box>
-
-                {/* CC Email */}
+                {/* Your Email ID (functions as CC) */}
                 <TextField
                   fullWidth
-                  label="CC (Optional)"
+                  label="Your Email ID"
                   name="cc"
                   type="text"
                   value={formData.cc}
                   onChange={handleChange}
-                  placeholder="email1@domain.com, email2@domain.com"
-                  helperText="Add additional recipients (comma-separated for multiple)"
+                  placeholder="your.email@domain.com"
                   InputProps={{
-                    startAdornment: <CcIcon sx={{ mr: 1, color: 'text.secondary' }} />,
+                    startAdornment: <EmailIcon sx={{ mr: 1, color: 'text.secondary' }} />,
                   }}
                 />
 
@@ -460,45 +422,6 @@ function App() {
                   {loading ? 'Sending...' : 'Send Test Email'}
                 </Button>
 
-                {/* Mailto fallback button */}
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  fullWidth
-                  startIcon={<EmailIcon />}
-                  onClick={() => {
-                    const mailtoUrl = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}${formData.cc ? `&cc=${encodeURIComponent(formData.cc)}` : ''}`;
-                    window.open(mailtoUrl, '_blank');
-                  }}
-                  sx={{
-                    mt: 2,
-                    py: 1.5,
-                    borderColor: 'rgba(255,255,255,0.3)',
-                    '&:hover': {
-                      borderColor: 'rgba(255,255,255,0.6)',
-                      bgcolor: 'rgba(255,255,255,0.05)',
-                    },
-                  }}
-                >
-                  Open in Email Client (Fallback)
-                </Button>
-
-                {/* Debug connectivity button */}
-                <Button
-                  variant="text"
-                  color="secondary"
-                  fullWidth
-                  onClick={testConnectivity}
-                  sx={{
-                    mt: 1,
-                    py: 1,
-                    fontSize: '0.75rem',
-                    opacity: 0.6,
-                    '&:hover': { opacity: 1 },
-                  }}
-                >
-                  🔧 Test Network Connectivity
-                </Button>
               </Box>
             </form>
 
