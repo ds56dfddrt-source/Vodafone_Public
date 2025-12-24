@@ -174,7 +174,7 @@ function App() {
       if (response.status === 200) {
         setSnackbar({
           open: true,
-          message: 'Email sent successfully via EmailJS!',
+          message: 'Email sent successfully!',
           severity: 'success',
         });
         // Only clear message, keep other selections
