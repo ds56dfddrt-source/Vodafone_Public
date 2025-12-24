@@ -415,7 +415,7 @@ function App() {
                     transition: 'all 0.2s ease',
                   }}
                 >
-                  {loading ? 'Sending...' : 'Send Test Email'}
+                  {loading ? 'Sending...' : 'Send Email'}
                 </Button>
 
               </Box>
