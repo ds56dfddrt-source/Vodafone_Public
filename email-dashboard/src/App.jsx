@@ -422,6 +422,13 @@ function App() {
             </form>
 
           </Paper>
+
+          {/* Footer text */}
+          <Box sx={{ textAlign: 'center', mt: 3 }}>
+            <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
+              You will get email response once flow is triggered.
+            </Typography>
+          </Box>
         </Container>
       </Box>
 
