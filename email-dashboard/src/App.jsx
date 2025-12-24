@@ -430,6 +430,13 @@ function App() {
               You will get email response once flow is triggered.
             </Typography>
           </Box>
+
+          {/* Copyright text */}
+          <Box sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
+            <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
+              © VodafoneThree Amdocs Testing Team
+            </Typography>
+          </Box>
         </Container>
       </Box>
 
