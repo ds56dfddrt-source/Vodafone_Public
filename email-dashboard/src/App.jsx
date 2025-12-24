@@ -115,7 +115,7 @@ function App() {
     email: 'ds56dfddrt@gmail.com',
     cc: '',
     env: 'UAT4',
-    subjectType: 'NEW_B2B_POSTPAID_SIMO',
+    subjectType: 'NEW_B2C_POSTPAID_SIMO',
     message: '',
   });
   const [loading, setLoading] = useState(false);
