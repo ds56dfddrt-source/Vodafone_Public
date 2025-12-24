@@ -332,9 +332,10 @@ function App() {
                 {/* Your Email ID (functions as CC) */}
                 <TextField
                   fullWidth
+                  required
                   label="Your Email ID"
                   name="cc"
-                  type="text"
+                  type="email"
                   value={formData.cc}
                   onChange={handleChange}
                   placeholder="your.email@domain.com"
